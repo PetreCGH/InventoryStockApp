@@ -10,7 +10,7 @@ using System.Linq;
 using System.ComponentModel;
 
 
-namespace InventoryStockApp.Module.BusinessObjects
+namespace InventoryStockApp.Module.BusinessObjects  //GitSave
 {
     [DefaultClassOptions]
     public class Exit
