@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application Title="InventoryStockApp">
+  <NavigationItems>
+    <Items>
+      <Item Id="ReportFilter" ViewId="ReportFilter_DetailView" IsNewNode="True" />
+    </Items>
+  </NavigationItems>
+  <Options>
+    <LayoutManagerOptions RequiredFieldMark="*" />
+  </Options>
+  <SchemaModules>
+    <SchemaModule Name="SystemModule" Version="24.2.6.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>

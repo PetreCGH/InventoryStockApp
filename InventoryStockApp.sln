@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryStockApp.Module", "InventoryStockApp.Module\InventoryStockApp.Module.csproj", "{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InventoryStockApp.Blazor.Server", "InventoryStockApp.Blazor.Server\InventoryStockApp.Blazor.Server.csproj", "{DB02592E-ACB4-4C7D-9885-E60964063380}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		EasyTest|Any CPU = EasyTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E283DA3B-2940-4DE9-9D9E-5309EDCB630F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB02592E-ACB4-4C7D-9885-E60964063380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB02592E-ACB4-4C7D-9885-E60964063380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB02592E-ACB4-4C7D-9885-E60964063380}.EasyTest|Any CPU.ActiveCfg = EasyTest|Any CPU
+		{DB02592E-ACB4-4C7D-9885-E60964063380}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
+		{DB02592E-ACB4-4C7D-9885-E60964063380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB02592E-ACB4-4C7D-9885-E60964063380}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

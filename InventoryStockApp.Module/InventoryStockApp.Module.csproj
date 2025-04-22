@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <CheckEolTargetFramework>false</CheckEolTargetFramework>
+    <Deterministic>false</Deterministic>
+    <AssemblyVersion>1.0.*</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Configurations>Debug;Release;EasyTest</Configurations>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
+  </ItemGroup>
+  <ItemGroup>
+	  <Reference Include="DevExpress.Persistent.BaseImpl.v24.2">
+		  <HintPath>..\..\..\Programs\Components\Offline Packages\devexpress.persistent.baseimpl\24.2.6\lib\net8.0\DevExpress.Persistent.BaseImpl.v24.2.dll</HintPath>
+	  </Reference>
+    <PackageReference Include="DevExpress.ExpressApp" Version="24.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.CodeAnalysis" Version="24.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.ConditionalAppearance" Version="24.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.EFCore" Version="24.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.Objects" Version="24.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.ReportsV2" Version="24.2.6" />
+    <PackageReference Include="DevExpress.ExpressApp.Validation" Version="24.2.6" />
+    <PackageReference Include="DevExpress.Persistent.Base" Version="24.2.6" />
+    <PackageReference Include="DevExpress.Persistent.BaseImpl.EFCore" Version="24.2.6" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.5.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.ReportsV2.v24.2">
+      <HintPath>..\..\..\Programs\Components\Offline Packages\devexpress.expressapp.reportsv2\24.2.6\lib\net8.0\DevExpress.ExpressApp.ReportsV2.v24.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Persistent.BaseImpl.EFCore.v24.2">
+      <HintPath>..\..\..\Programs\Components\Offline Packages\devexpress.persistent.baseimpl.efcore\24.2.6\lib\net8.0\DevExpress.Persistent.BaseImpl.EFCore.v24.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="UnusableNodes.xml">
+      <DependentUpon>Model.DesignedDiffs.xafml</DependentUpon>
+    </None>
+  </ItemGroup>
+
+</Project>

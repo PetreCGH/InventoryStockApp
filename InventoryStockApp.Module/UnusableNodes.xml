@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="Exits">
+        <Items Id="Items">
+          <Item Id="ExitDetail_ListView" ViewId="ExitDetail_ListView" />
+          <Item Id="Exit_ListView" ViewId="Exit_ListView" />
+        </Items>
+      </Item>
+      <Item Id="Entries">
+        <Items Id="Items">
+          <Item Id="EntryDetail_ListView" ViewId="EntryDetail_ListView" />
+          <Item Id="Entry_ListView" ViewId="Entry_ListView" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>
