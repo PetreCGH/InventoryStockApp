@@ -5,6 +5,9 @@ using DevExpress.Persistent.BaseImpl.EF.PermissionPolicy;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.ExpressApp.Design;
 using DevExpress.ExpressApp.EFCore.DesignTime;
+using DevExpress.Persistent.BaseImpl.EFCore;
+using InventoryStockApp.Module;
+using InventoryStockApp.Module.Reports;
 
 namespace InventoryStockApp.Module.BusinessObjects;
 
@@ -52,14 +55,25 @@ public class InventoryStockAppEFCoreDbContext : DbContext
     public DbSet<Exit> Exits { get; set; }
     public DbSet<ExitDetail> ExitDetails { get; set; }
 
+    public DbSet<ReportDataV2> Reports { get; set; }
+
+    public DbSet<ReportSelectionParameters> ReportSelectionParameters { get; set; }
+
+
+
+
+
+
 
     // Override OnModelCreating to configure entity models
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<ReportDataV2>();
+
         // Add precision and scale for decimal fields
-        
+
 
         modelBuilder.Entity<Product>()
             .Property(p => p.UnitPrice)

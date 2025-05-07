@@ -19,7 +19,7 @@ namespace InventoryStockApp.Module.BusinessObjects
         public virtual int Number { get; set; }
 
         [RuleRequiredField(DefaultContexts.Save)]
-        public virtual DateTime Date { get; set; } = DateTime.Now;
+        public virtual DateTime Date { get; set; } = DateTime.Now;  
 
         [RuleRequiredField(DefaultContexts.Save)]
         public virtual Partner Partner { get; set; }

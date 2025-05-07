@@ -4,6 +4,7 @@ using InventoryStockApp.Module.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InventoryStockApp.Module.Migrations
 {
     [DbContext(typeof(InventoryStockAppEFCoreDbContext))]
-    partial class InventoryStockAppEFCoreDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250423111044_Add_ReportDataV2")]
+    partial class Add_ReportDataV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -241,39 +244,6 @@ namespace InventoryStockApp.Module.Migrations
                     b.ToTable("Warehouse");
                 });
 
-            modelBuilder.Entity("InventoryStockApp.Module.Reports.ReportSelectionParameters", b =>
-                {
-                    b.Property<Guid>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<bool>("AllWarehouses")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("GCRecord")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasDefaultValue(0);
-
-                    b.Property<int?>("ReportType")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("WarehouseId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("WarehouseId");
-
-                    b.ToTable("ReportSelectionParameters");
-                });
-
             modelBuilder.Entity("InventoryStockApp.Module.BusinessObjects.Entry", b =>
                 {
                     b.HasOne("InventoryStockApp.Module.BusinessObjects.Partner", "Partner")
@@ -334,15 +304,6 @@ namespace InventoryStockApp.Module.Migrations
                     b.Navigation("Exit");
 
                     b.Navigation("Product");
-                });
-
-            modelBuilder.Entity("InventoryStockApp.Module.Reports.ReportSelectionParameters", b =>
-                {
-                    b.HasOne("InventoryStockApp.Module.BusinessObjects.Warehouse", "Warehouse")
-                        .WithMany()
-                        .HasForeignKey("WarehouseId");
-
-                    b.Navigation("Warehouse");
                 });
 
             modelBuilder.Entity("InventoryStockApp.Module.BusinessObjects.Entry", b =>

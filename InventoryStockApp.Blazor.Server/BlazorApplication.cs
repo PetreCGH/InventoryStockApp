@@ -5,8 +5,10 @@ using DevExpress.ExpressApp.SystemModule;
 using InventoryStockApp.Module.BusinessObjects;
 using Microsoft.EntityFrameworkCore;
 using DevExpress.ExpressApp.EFCore;
+using InventoryStockApp.Module.BusinessObjects;
 
-namespace InventoryStockApp.Blazor.Server;
+
+namespace InventoryStockApp.Module.Reports.Blazor.Server;
 
 public class InventoryStockAppBlazorApplication : BlazorApplication {
     public InventoryStockAppBlazorApplication() {

@@ -5,15 +5,17 @@ using DevExpress.Persistent.Base;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Components.Server.Circuits;
 using Microsoft.EntityFrameworkCore;
-using InventoryStockApp.Blazor.Server.Services;
+using InventoryStockApp.Module.Reports.Blazor.Server.Services;
 using DevExpress.ExpressApp.ReportsV2;
 using DevExpress.ExpressApp.ReportsV2.Blazor;
 using DevExpress.Persistent.BaseImpl.EFCore;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.ExpressApp.ApplicationBuilder;
+using InventoryStockApp.Module; 
+using InventoryStockApp.Module.BusinessObjects;
 
 
-namespace InventoryStockApp.Blazor.Server;
+namespace InventoryStockApp.Module.Reports.Blazor.Server;
 
 public class Startup
 {
@@ -52,7 +54,7 @@ public class Startup
                  .AddReports(options => {
                      options.EnableInplaceReports = true;
 
-                     //options.ReportDataType = typeof(ReportDataV2);
+                     options.ReportDataType = typeof(ReportDataV2);
 
 
 

@@ -22,6 +22,7 @@ namespace InventoryStockApp.Module.BusinessObjects
 
         [RuleRequiredField(DefaultContexts.Save)]
         [DataSourceProperty("AvailableProducts")]
+        
         public virtual Product Product { get; set; }
 
         [RuleRange(DefaultContexts.Save, 1, int.MaxValue, CustomMessageTemplate = "Quantity must be at least 1.")]
@@ -53,6 +54,7 @@ namespace InventoryStockApp.Module.BusinessObjects
                     .Select(d => d.Product)
                     .Distinct()
                     .ToList();
+                
             }
         }
     }

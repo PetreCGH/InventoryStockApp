@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <ListView Id="ExitReportFilter_ListView" AllowEdit="True" />
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="ReportFilters">
+        <Items Id="Items">
+          <Item Id="@9addfa85-44dd-4e39-8d26-b3eecb4042a5" ViewId="ExitReportFilter_ListView" />
+        </Items>
+      </Item>
+      <Item Id="ReportFilter" ViewId="ReportFilter_DetailView" />
+    </Items>
+  </NavigationItems>
+</Application>

@@ -10,8 +10,14 @@ using System.Linq;
 using System.ComponentModel;
 
 
-namespace InventoryStockApp.Module.BusinessObjects  //GitSave
+namespace InventoryStockApp.Module.BusinessObjects  
 {
+    [RuleCriteria(
+    "Exit.MustHaveAtLeastOneDetailAfterSave",
+    DefaultContexts.Save,
+    "Details.Count > 0",
+    CustomMessageTemplate = "You must add at least one product to the exit.",
+    TargetCriteria = "IsNewObject=false")]
     [DefaultClassOptions]
     public class Exit
     {
@@ -33,8 +39,9 @@ namespace InventoryStockApp.Module.BusinessObjects  //GitSave
         public virtual ObservableCollection<ExitDetail> Details { get; set; } = new();
 
         [Browsable(false)]
-        [RuleFromBoolProperty(nameof(HasExitDetails), DefaultContexts.Save,
-    CustomMessageTemplate = "You must add at least one product to the exit.")]
+
+        //    [RuleFromBoolProperty(nameof(HasExitDetails), DefaultContexts.Save,
+        //CustomMessageTemplate = "You must add at least one product to the exit.")]
         public bool HasExitDetails => Details != null && Details.Any();
 
         [NotMapped]

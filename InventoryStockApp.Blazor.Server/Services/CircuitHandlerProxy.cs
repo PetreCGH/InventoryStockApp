@@ -1,7 +1,7 @@
 ﻿using DevExpress.ExpressApp.Blazor.Services;
 using Microsoft.AspNetCore.Components.Server.Circuits;
 
-namespace InventoryStockApp.Blazor.Server.Services;
+namespace InventoryStockApp.Module.Reports.Blazor.Server.Services;
 
 internal class CircuitHandlerProxy : CircuitHandler {
     private readonly IScopedCircuitHandler scopedCircuitHandler;

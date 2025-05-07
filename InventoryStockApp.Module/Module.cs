@@ -10,23 +10,25 @@ using DevExpress.ExpressApp.Model.Core;
 using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using InventoryStockApp.Module.BusinessObjects;
-using static System.Net.Mime.MediaTypeNames;
 using DevExpress.ExpressApp.ReportsV2;
 using DevExpress.Persistent.BaseImpl.EFCore;
 using DevExpress.Persistent.BaseImpl.EF;
 using DevExpress.Persistent.BaseImpl;
 using DevExpress.ReportServer.ServiceModel.DataContracts;
 using DevExpress.Persistent.Validation;
-using InventoryStockApp.Module.BusinessObjects;
+using InventoryStockApp.Module.Reports;
+
+
 
 namespace InventoryStockApp.Module;
 
-// For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.
-public sealed class InventoryStockAppModule : ModuleBase {
-    public InventoryStockAppModule() {
-        //
-        // InventoryStockAppModule
-        //
+public sealed class InventoryStockAppModule : ModuleBase
+{
+    // 🔧 Păstrăm o referință la aplicație pentru a o transmite updaterului
+    private XafApplication application;
+
+    public InventoryStockAppModule()
+    {
         RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.SystemModule.SystemModule));
         RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.Objects.BusinessClassLibraryCustomizationModule));
         RequiredModuleTypes.Add(typeof(DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule));
@@ -36,13 +38,11 @@ public sealed class InventoryStockAppModule : ModuleBase {
         AdditionalExportedTypes.Add(typeof(Product));
         AdditionalExportedTypes.Add(typeof(Partner));
         AdditionalExportedTypes.Add(typeof(Warehouse));
-        
-        AdditionalExportedTypes.Add(typeof(ReportFilter));
-        AdditionalExportedTypes.Add(typeof(EntryReportResult));
         AdditionalExportedTypes.Add(typeof(ReportDataV2));
-        AdditionalExportedTypes.Add(typeof(ExitReportResult));
         AdditionalExportedTypes.Add(typeof(Entry));
         AdditionalExportedTypes.Add(typeof(EntryDetail));
+        AdditionalExportedTypes.Add(typeof(EntryReport));
+        AdditionalExportedTypes.Add(typeof(InventoryStockApp.Module.Reports.ReportSelectionParameters));
 
 
 
@@ -52,21 +52,25 @@ public sealed class InventoryStockAppModule : ModuleBase {
     TargetCriteria = "Details.Count > 0",
     CustomMessageTemplate = "You must add at least one product to the entry.")]
 
-
-    public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB) {
-        ModuleUpdater updater = new DatabaseUpdate.Updater(objectSpace, versionFromDB);
-        return new ModuleUpdater[] { updater };
-    }
-    public override void Setup(XafApplication application) {
+    public override void Setup(XafApplication application)
+    {
         base.Setup(application);
-        // Manage various aspects of the application UI and behavior at the module level.
+        this.application = application;
+
         ReportsModuleV2 reportsModule = application.Modules.FindModule<ReportsModuleV2>();
         if (reportsModule != null)
         {
             reportsModule.EnableInplaceReports = true;
             reportsModule.ReportDataType = typeof(ReportDataV2);
+
         }
     }
 
-    
+    public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
+    {
+        // Transmitem application-ul salvat către updater
+        return new ModuleUpdater[] {
+            new DatabaseUpdate.Updater(objectSpace, versionFromDB, application)
+        };
+    }
 }

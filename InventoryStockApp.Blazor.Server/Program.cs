@@ -5,7 +5,7 @@ using DevExpress.ExpressApp.Blazor.Services;
 using DevExpress.ExpressApp.Design;
 using DevExpress.ExpressApp.Utils;
 
-namespace InventoryStockApp.Blazor.Server;
+namespace InventoryStockApp.Module.Reports.Blazor.Server;
 
 public class Program : IDesignTimeApplicationFactory {
     private static bool ContainsArgument(string[] args, string argument) {

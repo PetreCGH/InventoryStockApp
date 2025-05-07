@@ -10,7 +10,7 @@ using DevExpress.ExpressApp.Model.DomainLogics;
 using DevExpress.ExpressApp.Model.NodeGenerators;
 using DevExpress.Persistent.BaseImpl.EF;
 
-namespace InventoryStockApp.Blazor.Server;
+namespace InventoryStockApp.Module.Reports.Blazor.Server;
 
 [ToolboxItemFilter("Xaf.Platform.Blazor")]
 // For more typical usage scenarios, be sure to check out https://docs.devexpress.com/eXpressAppFramework/DevExpress.ExpressApp.ModuleBase.

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ReportSelection_DetailView" Removed="True" />
+    <ListView Id="ReportSelection_ListView" Removed="True" />
+    <ListView Id="ReportSelection_LookupListView" Removed="True" />
+  </Views>
+  <NavigationItems Id="NavigationItems">
+    <Items Id="Items">
+      <Item Id="ReportFilter" ViewId="ReportFilter_DetailView" />
+      <Item Id="Default">
+        <Items Id="Items">
+          <Item Id="ReportSelection_ListView" Removed="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+</Application>
