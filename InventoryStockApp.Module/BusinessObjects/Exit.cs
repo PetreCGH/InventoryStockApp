@@ -19,6 +19,7 @@ namespace InventoryStockApp.Module.BusinessObjects
     CustomMessageTemplate = "You must add at least one product to the exit.",
     TargetCriteria = "IsNewObject=false")]
     [DefaultClassOptions]
+    [NavigationItem("Operations")]
     public class Exit
     {
         [Key]

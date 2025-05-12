@@ -1,5 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application Title="InventoryStockApp">
+  <BOModel>
+    <Class Name="InventoryStockApp.Module.Reports.ReportSelectionParameters">
+      <OwnMembers>
+        <Member Name="Warehouse" LookupProperty="Name" DataSourceProperty="" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
   <Options>
     <LayoutManagerOptions RequiredFieldMark="*" />
   </Options>

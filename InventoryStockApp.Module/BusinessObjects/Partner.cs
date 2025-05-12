@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace InventoryStockApp.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Master Data")]
     public class Partner
     {
         [Key]

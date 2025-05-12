@@ -8,6 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace InventoryStockApp.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem(false)]
     public class ExitDetail : IObjectSpaceLink
     {
         [Browsable(false)]

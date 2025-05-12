@@ -10,6 +10,7 @@ using DevExpress.Persistent.Base;
 namespace InventoryStockApp.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Master Data")]
     public class Warehouse
     {
         [Key]

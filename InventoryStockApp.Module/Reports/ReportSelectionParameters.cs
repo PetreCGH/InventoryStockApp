@@ -4,6 +4,7 @@ using DevExpress.ExpressApp.Model;
 using DevExpress.Persistent.Validation;
 using DevExpress.Persistent.BaseImpl.EF;
 using InventoryStockApp.Module.BusinessObjects;
+using System.ComponentModel;
 
 namespace InventoryStockApp.Module.Reports
 {
@@ -14,6 +15,7 @@ namespace InventoryStockApp.Module.Reports
     }
 
     [DefaultClassOptions]
+    [NavigationItem("Operations")]
     public class ReportSelectionParameters : BaseObject
     {
         public ReportSelectionParameters() : base() { }
@@ -31,5 +33,6 @@ namespace InventoryStockApp.Module.Reports
         public virtual bool AllWarehouses { get; set; } = true;
 
         public virtual Warehouse Warehouse { get; set; }
+
     }
 }

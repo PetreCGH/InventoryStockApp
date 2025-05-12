@@ -12,6 +12,7 @@ using DevExpress.ExpressApp.Model;
 namespace InventoryStockApp.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Master Data")]
     public class Product
     {
         [Key]

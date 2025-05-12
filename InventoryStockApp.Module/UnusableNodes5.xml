@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="ReportSelectionParameters_DetailView">
+      <Items Id="Items">
+        <PropertyEditor Id="WarehouseId" Removed="True" />
+      </Items>
+    </DetailView>
+    <ListView Id="ReportSelectionParameters_LookupListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="WarehouseId" Removed="True" />
+      </Columns>
+    </ListView>
+    <ListView Id="ReportSelectionParameters_ListView">
+      <Columns Id="Columns">
+        <ColumnInfo Id="WarehouseId" Removed="True" />
+      </Columns>
+    </ListView>
+  </Views>
+</Application>

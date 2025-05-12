@@ -11,6 +11,7 @@ using System.Linq;
 namespace InventoryStockApp.Module.BusinessObjects
 {
     [DefaultClassOptions]
+    [NavigationItem("Operations")]
     public class Entry
     {
         [Key]
