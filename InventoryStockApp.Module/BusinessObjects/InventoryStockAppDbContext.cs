@@ -54,15 +54,7 @@ public class InventoryStockAppEFCoreDbContext : DbContext
     public DbSet<EntryDetail> EntryDetails { get; set; }
     public DbSet<Exit> Exits { get; set; }
     public DbSet<ExitDetail> ExitDetails { get; set; }
-
     public DbSet<ReportDataV2> Reports { get; set; }
-
-    public DbSet<ReportSelectionParameters> ReportSelectionParameters { get; set; }
-
-
-
-
-
 
 
     // Override OnModelCreating to configure entity models
@@ -70,9 +62,32 @@ public class InventoryStockAppEFCoreDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.Entity<ReportDataV2>();
+        modelBuilder.Entity<ReportDataV2>().HasData(new ReportDataV2[]
+        {
+             new ReportDataV2
+             {
+                 ID = Guid.Parse("108d9487-846a-4fd3-9c83-c1cdfb72aa04"),
+                 DisplayName = "Raport intrari",
+                 PredefinedReportTypeName = typeof(EntryReport).ToString(),
+                 IsInplaceReport = false,
+                 DataTypeName = "",
+                 ParametersObjectTypeName = typeof(ReportSelectionParameters).ToString()
+             },
+             new ReportDataV2
+             {
+                 ID = Guid.Parse("108d94d7-846a-4fd3-9c83-c1cdfb72aa04"),
+                 DisplayName = "Raport iesiri",
+                 PredefinedReportTypeName =typeof(ExitReport).ToString(),
+                 IsInplaceReport = false,
+                 DataTypeName = "",
+                 ParametersObjectTypeName = typeof(ReportSelectionParameters).ToString()
+             }
+
+        });
 
         // Add precision and scale for decimal fields
+
+
 
 
         modelBuilder.Entity<Product>()

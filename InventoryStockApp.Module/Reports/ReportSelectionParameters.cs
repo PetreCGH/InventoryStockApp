@@ -5,6 +5,13 @@ using DevExpress.Persistent.Validation;
 using DevExpress.Persistent.BaseImpl.EF;
 using InventoryStockApp.Module.BusinessObjects;
 using System.ComponentModel;
+using DevExpress.ExpressApp.ConditionalAppearance;
+using DevExpress.ExpressApp.Editors;
+using DevExpress.ExpressApp.ReportsV2;
+using DevExpress.Data.Filtering;
+using DevExpress.Xpo;
+using DevExpress.ExpressApp;
+using DevExpress.ExpressApp.DC;
 
 namespace InventoryStockApp.Module.Reports
 {
@@ -14,11 +21,12 @@ namespace InventoryStockApp.Module.Reports
         ExitReport
     }
 
-    [DefaultClassOptions]
-    [NavigationItem("Operations")]
-    public class ReportSelectionParameters : BaseObject
+    [DomainComponent]
+    public class ReportSelectionParameters : ReportParametersObjectBase
     {
-        public ReportSelectionParameters() : base() { }
+        public ReportSelectionParameters(IObjectSpaceCreator provider) : base(provider)
+        {
+        }
 
         [RuleRequiredField(DefaultContexts.Save)]
         [ModelDefault("Caption", "Report Type")]
@@ -32,7 +40,38 @@ namespace InventoryStockApp.Module.Reports
 
         public virtual bool AllWarehouses { get; set; } = true;
 
+
+        //[Appearance("HideWarehouseIfAllSelected", Visibility = ViewItemVisibility.Hide, Criteria = "AllWarehouses = true", TargetItems = nameof(Warehouse))]
         public virtual Warehouse Warehouse { get; set; }
 
+        public override bool Equals(object obj)
+        {
+            return true;
+        }
+
+        public override CriteriaOperator GetCriteria()
+        {
+            return CriteriaOperator.Parse("1=0");
+        }
+
+        public override int GetHashCode()
+        {
+            return 0;
+        }
+
+        public override SortProperty[] GetSorting()
+        {
+            return Array.Empty<SortProperty>();
+        }
+
+        public override string ToString()
+        {
+            return base.ToString();
+        }
+
+        protected override IObjectSpace CreateObjectSpace()
+        {
+            return objectSpaceCreator.CreateObjectSpace<Entry>();
+        }
     }
 }

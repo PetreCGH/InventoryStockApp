@@ -92,7 +92,6 @@
             this.GrandTotalData1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.GrandTotalBackground1 = new DevExpress.XtraReports.UI.XRControlStyle();
             this.PageInfo = new DevExpress.XtraReports.UI.XRControlStyle();
-            this.collectionDataSource1 = new DevExpress.Persistent.Base.ReportsV2.CollectionDataSource();
             this.StartDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.EndDate = new DevExpress.XtraReports.Parameters.Parameter();
             this.WarehouseId = new DevExpress.XtraReports.Parameters.Parameter();
@@ -100,7 +99,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.collectionDataSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // TopMargin
@@ -547,10 +545,10 @@
             storedProcQuery1.Name = "GetEntryReport";
             queryParameter1.Name = "@StartDate";
             queryParameter1.Type = typeof(global::DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("?StartDate", typeof(System.DateTime));
+            queryParameter1.Value = new DevExpress.DataAccess.Expression("?StartDate", typeof(System.DateOnly));
             queryParameter2.Name = "@EndDate";
             queryParameter2.Type = typeof(global::DevExpress.DataAccess.Expression);
-            queryParameter2.Value = new DevExpress.DataAccess.Expression("?EndDate", typeof(System.DateTime));
+            queryParameter2.Value = new DevExpress.DataAccess.Expression("?EndDate", typeof(System.DateOnly));
             queryParameter3.Name = "@WarehouseId";
             queryParameter3.Type = typeof(global::DevExpress.DataAccess.Expression);
             queryParameter3.Value = new DevExpress.DataAccess.Expression("?WarehouseId", typeof(int));
@@ -704,38 +702,30 @@
             this.PageInfo.Name = "PageInfo";
             this.PageInfo.Padding = new DevExpress.XtraPrinting.PaddingInfo(6, 6, 0, 0, 100F);
             // 
-            // collectionDataSource1
-            // 
-            this.collectionDataSource1.Name = "collectionDataSource1";
-            this.collectionDataSource1.ObjectTypeName = "InventoryStockApp.Module.BusinessObjects.EntryDetail";
-            this.collectionDataSource1.TopReturnedRecords = 0;
-            // 
             // StartDate
             // 
+            this.StartDate.AllowNull = true;
             this.StartDate.Description = "StartDate";
-            this.StartDate.ExpressionBindings.AddRange(new DevExpress.XtraReports.Expressions.BasicExpressionBinding[] {
-            new DevExpress.XtraReports.Expressions.BasicExpressionBinding("Value", "AddMonths(Now(), -1)")});
             this.StartDate.Name = "StartDate";
             this.StartDate.Type = typeof(global::System.DateTime);
-            this.StartDate.ValueInfo = "2025-04-24";
+            this.StartDate.Visible = false;
             // 
             // EndDate
             // 
+            this.EndDate.AllowNull = true;
             this.EndDate.Description = "EndDate";
-            this.EndDate.ExpressionBindings.AddRange(new DevExpress.XtraReports.Expressions.BasicExpressionBinding[] {
-            new DevExpress.XtraReports.Expressions.BasicExpressionBinding("Value", "Now()")});
             this.EndDate.Name = "EndDate";
             this.EndDate.Type = typeof(global::System.DateTime);
-            this.EndDate.ValueInfo = "2025-04-24";
+            this.EndDate.Visible = false;
             // 
             // WarehouseId
             // 
+            this.WarehouseId.AllowNull = true;
             this.WarehouseId.Description = "Warehouse";
-            this.WarehouseId.ExpressionBindings.AddRange(new DevExpress.XtraReports.Expressions.BasicExpressionBinding[] {
-            new DevExpress.XtraReports.Expressions.BasicExpressionBinding("Value", "1")});
             this.WarehouseId.Name = "WarehouseId";
             this.WarehouseId.Type = typeof(int);
             this.WarehouseId.ValueInfo = "0";
+            this.WarehouseId.Visible = false;
             // 
             // GroupHeader4
             // 
@@ -756,8 +746,7 @@
             this.ReportFooter,
             this.GroupHeader4});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1,
-            this.collectionDataSource1});
+            this.sqlDataSource1});
             this.DataMember = "GetEntryReport";
             this.DataSource = this.sqlDataSource1;
             this.Font = new DevExpress.Drawing.DXFont("Arial", 9.75F);
@@ -792,7 +781,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.table1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.table3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.collectionDataSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -840,7 +828,6 @@
         private DevExpress.XtraReports.UI.XRControlStyle GrandTotalData1;
         private DevExpress.XtraReports.UI.XRControlStyle GrandTotalBackground1;
         private DevExpress.XtraReports.UI.XRControlStyle PageInfo;
-        private DevExpress.Persistent.Base.ReportsV2.CollectionDataSource collectionDataSource1;
         private DevExpress.XtraReports.UI.XRTableCell tableCell6;
         private DevExpress.XtraReports.UI.XRLabel xrLabel4;
         private DevExpress.XtraReports.UI.XRLabel xrLabel2;

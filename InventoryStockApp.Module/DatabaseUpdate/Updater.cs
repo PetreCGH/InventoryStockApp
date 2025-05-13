@@ -52,6 +52,7 @@ public class Updater : ModuleUpdater
             reportData.DisplayName = displayName;
             reportData.IsInplaceReport = true;
 
+
             using (var stream = new MemoryStream())
             {
                 report.SaveLayoutToXml(stream);
