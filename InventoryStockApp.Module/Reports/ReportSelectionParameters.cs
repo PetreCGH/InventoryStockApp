@@ -22,15 +22,17 @@ namespace InventoryStockApp.Module.Reports
     }
 
     [DomainComponent]
+
+
     public class ReportSelectionParameters : ReportParametersObjectBase
     {
         public ReportSelectionParameters(IObjectSpaceCreator provider) : base(provider)
         {
         }
 
-        [RuleRequiredField(DefaultContexts.Save)]
-        [ModelDefault("Caption", "Report Type")]
-        public virtual ReportType? ReportType { get; set; }
+        //[RuleRequiredField(DefaultContexts.Save)]
+        //[ModelDefault("Caption", "Report Type")]
+        //public virtual ReportType? ReportType { get; set; }
 
         [RuleRequiredField(DefaultContexts.Save)]
         public virtual DateTime StartDate { get; set; } = new(DateTime.Today.Year, DateTime.Today.Month, 1);
@@ -38,10 +40,11 @@ namespace InventoryStockApp.Module.Reports
         [RuleRequiredField(DefaultContexts.Save)]
         public virtual DateTime EndDate { get; set; } = DateTime.Today;
 
+        [ImmediatePostData]
         public virtual bool AllWarehouses { get; set; } = true;
+     
 
-
-        //[Appearance("HideWarehouseIfAllSelected", Visibility = ViewItemVisibility.Hide, Criteria = "AllWarehouses = true", TargetItems = nameof(Warehouse))]
+        [Appearance("HideWarehouseIfAllSelected", Visibility = ViewItemVisibility.Hide, Criteria = "AllWarehouses = true", TargetItems = nameof(Warehouse))]
         public virtual Warehouse Warehouse { get; set; }
 
         public override bool Equals(object obj)

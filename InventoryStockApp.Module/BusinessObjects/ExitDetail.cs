@@ -41,15 +41,15 @@ namespace InventoryStockApp.Module.BusinessObjects
                 if (Exit?.Warehouse == null)
                     return new List<Product>();
 
-                // Obține IObjectSpace din contextul EF Core
+                
                 var objectSpace = ((DevExpress.ExpressApp.IObjectSpaceLink)this).ObjectSpace;
 
-                // Ia toate Entry-urile cu același Warehouse
+                
                 var entries = objectSpace.GetObjects<Entry>()
                     .Where(e => e.Warehouse.Id == Exit.Warehouse.Id)
                     .ToList();
 
-                // Returnează doar produsele din entry-uri (distincte)
+                
                 return entries
                     .SelectMany(e => e.Details)
                     .Select(d => d.Product)

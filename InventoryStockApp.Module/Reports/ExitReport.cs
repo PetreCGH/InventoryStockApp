@@ -15,7 +15,7 @@ namespace InventoryStockApp.Module.Reports
             InitializeComponent();
             this.RequestParameters = true;
 
-            // 1. Definim parametrii vizibili pentru utilizator
+            
             Parameter startDateParam = new Parameter()
             {
                 Name = "StartDate",
@@ -38,17 +38,17 @@ namespace InventoryStockApp.Module.Reports
             {
                 Name = "WarehouseId",
                 Type = typeof(int),
-                Value = 0, // 0 = toate gestiunile
+                Value = 0, 
                 Description = "Gestiune ID",
                 Visible = true
             };
 
-            // Adăugăm parametrii la raport
+            
             this.Parameters.AddRange(new Parameter[] {
                 startDateParam, endDateParam, warehouseIdParam
             });
 
-            // 2. Asociem parametrii cu sqlDataSource1
+            
             this.sqlDataSource1.Queries[0].Parameters[0].Value =
                 new DevExpress.DataAccess.Expression("[Parameters.StartDate]", typeof(DateTime));
 
@@ -58,7 +58,7 @@ namespace InventoryStockApp.Module.Reports
             this.sqlDataSource1.Queries[0].Parameters[2].Value =
                 new DevExpress.DataAccess.Expression("[Parameters.WarehouseId]", typeof(int));
 
-            // 3. Setăm sursa de date și membrul
+            
             this.sqlDataSource1.ConnectionName = "ConnectionString";
             this.DataSource = this.sqlDataSource1;
             this.DataMember = "GetExitReport";
@@ -75,7 +75,7 @@ namespace InventoryStockApp.Module.Reports
             );
 
             this.sqlDataSource1.ConnectionParameters = connectionParams;
-            this.sqlDataSource1.RebuildResultSchema(); // Actualizează schema dacă e nevoie
+            this.sqlDataSource1.RebuildResultSchema(); 
         }
     }
 }

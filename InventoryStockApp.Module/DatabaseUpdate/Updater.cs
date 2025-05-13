@@ -22,12 +22,12 @@ public class Updater : ModuleUpdater
     {
         base.UpdateDatabaseAfterUpdateSchema();
 
-        ReportsModuleV2 reportsModule = application.Modules.FindModule<ReportsModuleV2>();
-        if (reportsModule != null)
-        {
-            CreateOrUpdateReport<EntryReport>("Entry Report");
-            CreateOrUpdateReport<ExitReport>("Exit Report");
-        }
+        //ReportsModuleV2 reportsModule = application.Modules.FindModule<ReportsModuleV2>();
+        //if (reportsModule != null)
+        //{
+        //    CreateOrUpdateReport<EntryReport>("Entry Report");
+        //    CreateOrUpdateReport<ExitReport>("Exit Report");
+        //}
     }
 
     private void CreateOrUpdateReport<TReport>(string displayName)

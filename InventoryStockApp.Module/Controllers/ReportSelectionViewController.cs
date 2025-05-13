@@ -37,22 +37,16 @@ namespace InventoryStockApp.Module.Controllers
         private void AcceptAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
 
-
-            // 1. Verificăm dacă obiectul curent este valid
             var parameters = View.CurrentObject as ReportSelectionParameters;
-            if (parameters == null || parameters.ReportType == null)
+            if (parameters == null)
             {
                 throw new UserFriendlyException("Please complete all required fields.");
             }
 
+            string viewTitle = View.Caption?.ToLowerInvariant() ?? "";
+            string reportName = viewTitle.Contains("iesiri") ? "Exit Report" : "Entry Report";
+
             
-
-            // 2. Determinăm numele raportului în funcție de tipul selectat
-            string reportName = parameters.ReportType == InventoryStockApp.Module.Reports.ReportType.EntryReport
-                ? "Entry Report"
-                : "Exit Report";
-
-            // 3. Căutăm raportul salvat în baza de date
             var reportData = ObjectSpace.GetObjects<ReportDataV2>().FirstOrDefault(r => r.DisplayName == reportName);
             if (reportData == null)
             {
@@ -64,25 +58,19 @@ namespace InventoryStockApp.Module.Controllers
                 throw new UserFriendlyException($"Report '{reportName}' has no content. Please recreate it.");
             }
 
-            // 4. Încărcăm raportul fizic (clasa EntryReport), nu doar metadatele
+            
             var report = ReportDataProvider.ReportsStorage.LoadReport(reportData);
 
-            // 5. Aplicăm parametrii și conexiunea DOAR dacă raportul este EntryReport
             if (report is EntryReport entryReport)
             {
 
-                // Setăm conexiunea SQL la raport
+                
                 entryReport.SetSqlConnection("DESKTOP-2VG93U0", "InventoryStockAp");
 
-                // Setăm valorile parametrilor
                 entryReport.Parameters["StartDate"].Value = parameters.StartDate;
                 entryReport.Parameters["EndDate"].Value = parameters.EndDate;
                 entryReport.Parameters["WarehouseId"].Value = parameters.AllWarehouses ? 0 : parameters.Warehouse?.Id ?? 0;
 
-                
-
-
-                // Oprim cererea de parametri la runtime
                 entryReport.RequestParameters = false;
             }
 
@@ -99,7 +87,6 @@ namespace InventoryStockApp.Module.Controllers
                 exitReport.RequestParameters = false;
             }
 
-            // 6. Afișăm raportul în preview-ul DevExpress
             var controller = Frame.GetController<ReportServiceController>();
             var handle = ReportDataProvider.ReportsStorage.GetReportContainerHandle(reportData);
             controller?.ShowPreview(handle);
@@ -107,7 +94,7 @@ namespace InventoryStockApp.Module.Controllers
 
         private void ListReportAction_Execute(object sender, SimpleActionExecuteEventArgs e)
         {
-            AcceptAction_Execute(sender, e); // same behavior
+            AcceptAction_Execute(sender, e); 
         }
 
         private CriteriaOperator ParametersToCriteria(Dictionary<string, object> parameters)
@@ -119,6 +106,8 @@ namespace InventoryStockApp.Module.Controllers
 
             return new GroupOperator(GroupOperatorType.And, conditions);
         }
+
+
         
     }
 }

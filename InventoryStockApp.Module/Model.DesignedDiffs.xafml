@@ -2,6 +2,9 @@
 <Application Title="InventoryStockApp">
   <BOModel>
     <Class Name="InventoryStockApp.Module.Reports.ReportSelectionParameters">
+      <AppearanceRules>
+        <AppearanceRule Id="HideWarehouseIfAllSelected" TargetItems="Warehouse" Criteria="AllWarehouses = true" Context="DetailView" Visibility="Hide" Removed="True" />
+      </AppearanceRules>
       <OwnMembers>
         <Member Name="Warehouse" LookupProperty="Name" DataSourceProperty="" />
       </OwnMembers>

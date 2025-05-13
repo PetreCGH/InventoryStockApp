@@ -15,7 +15,7 @@ namespace InventoryStockApp.Module.Reports
         {
             InitializeComponent();
 
-            //// 1. Definire parametri vizibili în UI
+            
             //Parameter startDateParam = new Parameter
             //{
             //    Name = "StartDate",
@@ -43,7 +43,7 @@ namespace InventoryStockApp.Module.Reports
             //    Visible = true
             //};
 
-            //// 2. Adăugare parametri la raport
+            
             //this.Parameters.AddRange(new Parameter[]
             //{
             //    startDateParam,
@@ -53,7 +53,7 @@ namespace InventoryStockApp.Module.Reports
 
 
 
-            //// 3. Asociere parametri cu SQL Query
+            
             //this.sqlDataSource1.Queries[0].Parameters[0].Value =
             //    new DevExpress.DataAccess.Expression("[Parameters.StartDate]", typeof(DateTime));
 
@@ -63,7 +63,7 @@ namespace InventoryStockApp.Module.Reports
             //this.sqlDataSource1.Queries[0].Parameters[2].Value =
             //    new DevExpress.DataAccess.Expression("[Parameters.WarehouseId]", typeof(int));
 
-            //// 4. Configurare sursă de date
+            
             //this.sqlDataSource1.ConnectionName = "ConnectionString"; 
             //this.DataSource = this.sqlDataSource1;
             //this.DataMember = "GetEntryReport";

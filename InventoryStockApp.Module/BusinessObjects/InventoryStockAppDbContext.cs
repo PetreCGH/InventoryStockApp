@@ -67,7 +67,7 @@ public class InventoryStockAppEFCoreDbContext : DbContext
              new ReportDataV2
              {
                  ID = Guid.Parse("108d9487-846a-4fd3-9c83-c1cdfb72aa04"),
-                 DisplayName = "Raport intrari",
+                 DisplayName = "Entry Report",
                  PredefinedReportTypeName = typeof(EntryReport).ToString(),
                  IsInplaceReport = false,
                  DataTypeName = "",
@@ -76,7 +76,7 @@ public class InventoryStockAppEFCoreDbContext : DbContext
              new ReportDataV2
              {
                  ID = Guid.Parse("108d94d7-846a-4fd3-9c83-c1cdfb72aa04"),
-                 DisplayName = "Raport iesiri",
+                 DisplayName = "Exit Report",
                  PredefinedReportTypeName =typeof(ExitReport).ToString(),
                  IsInplaceReport = false,
                  DataTypeName = "",

@@ -24,7 +24,7 @@ namespace InventoryStockApp.Module;
 
 public sealed class InventoryStockAppModule : ModuleBase
 {
-    // 🔧 Păstrăm o referință la aplicație pentru a o transmite updaterului
+    
     private XafApplication application;
 
     public InventoryStockAppModule()
@@ -68,7 +68,7 @@ public sealed class InventoryStockAppModule : ModuleBase
 
     public override IEnumerable<ModuleUpdater> GetModuleUpdaters(IObjectSpace objectSpace, Version versionFromDB)
     {
-        // Transmitem application-ul salvat către updater
+        
         return new ModuleUpdater[] {
             new DatabaseUpdate.Updater(objectSpace, versionFromDB, application)
         };
