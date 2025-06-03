@@ -1,14 +1,14 @@
-# 📦 InventoryStockApp
+# InventoryStockApp
 
 **Web app for managing products, stock, and warehouses.**
 
-## ✅ Features
+## Features
 
 - Manage products, partners, and warehouses
 - Record stock entries and exits
 - Filter reports by date and warehouse
 
-## 🛠 Technologies
+## Technologies
 
 - C#  
 - DevExpress XAF
